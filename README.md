@@ -10,9 +10,8 @@ Meteor App for Roomscore
 ## How to Run on local machine
 
 ```
-git clone git@github.com:ctagroup/home-app.git
-cd home-app
-git checkout meteor
+git clone git@github.com:desaiuditd/roomscore-meteor.git
+cd roomscore-meteor
 meteor npm install
 meteor run
 ```
