@@ -15,6 +15,10 @@ Template.myProfile.helpers(
 				console.log('reset')
 				userProfile.resetGravatar();
 				$('#reset-gravatar-modal').modal('hide');
+			},
+			'press #display-name': function (event, template) {
+				$(event.target).hide();
+				$('#edit-display-name').removeClass('hide');
 			}
 		}
 	}

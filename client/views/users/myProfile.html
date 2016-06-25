@@ -9,7 +9,19 @@
 
 				<h1 class="page-header">
 					<span id="change-gravatar">{{{currentUserGravatar size='large'}}}</span>
-					{{currentUserFullName}}
+					<span id="display-name">{{currentUserFullName}}</span>
+					<form id="edit-display-name" class="hide">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="input-group">
+									<input name="display-name" type="text" class="form-control" placeholder="{{currentUserFullName}}" value="{{currentUserFullName}}" />
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">Save</button>
+									</span>
+								</div><!-- /input-group -->
+							</div><!-- /.col-lg-6 -->
+						</div><!-- /.row -->
+					</form>
 				</h1>
 
 			</div>
