@@ -68,7 +68,7 @@ FlowRouter.route( '/tasks/review', {
 	}
 } );
 
-FlowRouter.route( '/me', {
+FlowRouter.route( '/profile/me', {
 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
 	name: 'myProfile',
 	action: function (params, queryParams) {
@@ -80,17 +80,17 @@ FlowRouter.route( '/me', {
 	}
 } );
 
-// FlowRouter.route( '/:_username', {
-// 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
-// 	name: 'userProfile',
-// 	action: function (params, queryParams) {
-//
-// 		Tracker.autorun( function () {
-// 			BlazeLayout.render( 'userProfile' );
-// 		} );
-//
-// 	}
-// } );
+FlowRouter.route( '/profile/:_username', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'userProfile',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'userProfile' );
+		} );
+
+	}
+} );
 
 /**
  * Accounts Routes
@@ -149,3 +149,12 @@ FlowRouter.route( '/terms-of-use', {
 		BlazeLayout.render('termsOfUse');
 	}
 } );
+
+/**
+ * 404
+ */
+FlowRouter.notFound = {
+	action: function() {
+		BlazeLayout.render('404');
+	}
+};
