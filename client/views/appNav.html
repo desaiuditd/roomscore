@@ -22,23 +22,21 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-				</ul>
 				{{#if currentUser}}
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							{{{currentUserGravatar}}} {{currentUserFullName}} <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
-						</ul>
-					</li>
-				</ul>
+					<ul class="nav navbar-nav">
+						<li class="{{isActiveRoute 'myProfile'}}">
+							<a href="{{pathFor 'myProfile'}}">
+								{{{currentUserGravatar}}} {{currentUserFullName}}
+							</a>
+						</li>
+						<li class="{{isActiveRoute 'tasks'}}"><a href="{{pathFor 'tasks'}}"><i class="fa fa-tasks"></i> Tasks</a></li>
+						<li class="{{isActiveRoute 'createTask'}}"><a href="{{pathFor 'createTask'}}"><i class="fa fa-plus"></i> Add a Task</a></li>
+						<li><a href="{{pathFor 'logout'}}"><i class="fa fa-sign-out"></i> Logout</a></li>
+					</ul>
 				{{else}}
-				<div class="account-button navbar-right">
-					{{> atNavButton}}
-				</div>
+					<div class="account-button navbar-right">
+						{{> atNavButton}}
+					</div>
 				{{/if}}
 			</div>
 
