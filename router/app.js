@@ -44,18 +44,6 @@ FlowRouter.route( '/tasks/review', {
 	}
 } );
 
-FlowRouter.route( '/tasks/:_id', {
-	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
-	name: 'editTask',
-	action: function (params, queryParams) {
-
-		Tracker.autorun( function () {
-			BlazeLayout.render( 'editTask' );
-		} );
-
-	}
-} );
-
 FlowRouter.route( '/tasks/new', {
 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
 	name: 'createTask',
@@ -63,6 +51,18 @@ FlowRouter.route( '/tasks/new', {
 
 		Tracker.autorun( function () {
 			BlazeLayout.render( 'createTask' );
+		} );
+
+	}
+} );
+
+FlowRouter.route( '/tasks/:_id', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'editTask',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'editTask' );
 		} );
 
 	}
