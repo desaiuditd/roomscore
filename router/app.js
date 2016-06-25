@@ -2,6 +2,9 @@
  * Created by udit on 20/06/16.
  */
 
+/**
+ * Dashboard / Home
+ */
 FlowRouter.route( '/', {
 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
 	name: 'home',
@@ -14,10 +17,78 @@ FlowRouter.route( '/', {
 	}
 } );
 
-FlowRouter.route( '/logout', {
-	name: 'logout',
-	action: function ( params, queryParams ) {
-		AccountsTemplates.logout();
+/**
+ * Tasks
+ */
+FlowRouter.route( '/tasks', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'tasks',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'tasks' );
+		} );
+
+	}
+} );
+
+FlowRouter.route( '/tasks/:_id', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'editTask',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'editTask' );
+		} );
+
+	}
+} );
+
+FlowRouter.route( '/tasks/new', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'createTask',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'createTask' );
+		} );
+
+	}
+} );
+
+FlowRouter.route( '/tasks/review', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'reviewTasks',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'reviewTasks' );
+		} );
+
+	}
+} );
+
+FlowRouter.route( '/me', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'myProfile',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'myProfile' );
+		} );
+
+	}
+} );
+
+FlowRouter.route( '/:_username', {
+	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+	name: 'userProfile',
+	action: function (params, queryParams) {
+
+		Tracker.autorun( function () {
+			BlazeLayout.render( 'userProfile' );
+		} );
+
 	}
 } );
 
@@ -55,6 +126,12 @@ AccountsTemplates.configureRoute( 'verifyEmail', {
 AccountsTemplates.configureRoute( 'resendVerificationEmail', {
 	name: 'resendVerificationEmail',
 	path: '/send-again',
+} );
+FlowRouter.route( '/logout', {
+	name: 'logout',
+	action: function ( params, queryParams ) {
+		AccountsTemplates.logout();
+	}
 } );
 
 /**
