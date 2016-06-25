@@ -11,6 +11,9 @@ Schemas.coordinates = new SimpleSchema(
 		},
 		long: {
 			type: Number
+		},
+		postalAddress: {
+			type: String
 		}
 	}
 );
