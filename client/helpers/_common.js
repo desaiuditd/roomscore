@@ -2,24 +2,37 @@
  * Created by udit on 25/06/16.
  */
 
-Template.registerHelper('currentUserGravatar', function(size) {
+Template.registerHelper('currentUserGravatar', function(options) {
+
+	if ( ! options ) {
+		options = {
+			hash: {
+				size: 'small',
+				forceGravatar: false
+			}
+		};
+	}
+
+	if ( ! options.hash.size ) {
+		options.hash.size = 'small';
+	}
+
+	if ( ! options.hash.forceGravatar ) {
+		options.hash.forceGravatar = false;
+	}
 
 	var gravatar = '';
 
-	if ( ! size ) {
-		size = 'small';
-	}
-
 	var user = Meteor.user();
 
-	if ( user && user.profile && user.profile.gravatar ) {
-		gravatar = '<img class="avatar ' + size + '" src="' + user.profile.gravatar + '" />';
+	if ( user && user.profile && user.profile.gravatar && !options.hash.forceGravatar ) {
+		gravatar = '<img class="avatar ' + options.hash.size + '" src="' + user.profile.gravatar + '" />';
 	} else {
 		var email = ( user && user.emails && user.emails[0].address ) || '';
 		//email = Email.normalize( email );
 
 		if ( email ) {
-			gravatar = '<img class="avatar ' + size + '" src="' + Gravatar.imageUrl( email ) + '" />';
+			gravatar = '<img class="avatar ' + options.hash.size + '" src="' + Gravatar.imageUrl( email ) + '" />';
 		}
 	}
 

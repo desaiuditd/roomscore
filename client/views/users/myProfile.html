@@ -1,19 +1,46 @@
 <template name="myProfile">
-	<div id="content">
-		{{> appNav}}
 
-		<div class="container">
+	{{#HammerTouchArea gestureMap=profileGestures}}
 
-			<h1 class="page-header">
-				<span id="change-gravatar">{{{currentUserGravatar 'large'}}}</span>
-				{{currentUserFullName}}
-			</h1>
+		<div id="content">
+			{{> appNav}}
 
+			<div class="container">
 
+				<h1 class="page-header">
+					<span id="change-gravatar">{{{currentUserGravatar size='large'}}}</span>
+					{{currentUserFullName}}
+				</h1>
+
+			</div>
+
+			{{> footer}}
 
 		</div>
 
-		{{> footer}}
+		{{> gravatarModal}}
 
-	</div>
+	{{/HammerTouchArea}}
+
+</template>
+
+<template name="gravatarModal">
+	<div id="reset-gravatar-modal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Gravatar</h4>
+				</div>
+				<div class="modal-body">
+					{{{currentUserGravatar size='large' forceGravatar=true}}}
+					<p>Do you want to replace your profile picture with your Gravatar ?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" id="reset-gravatar" class="btn btn-primary">Save changes</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 </template>
