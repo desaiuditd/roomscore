@@ -12,8 +12,8 @@ Template.registerHelper('currentUserGravatar', function(size) {
 
 	var user = Meteor.user();
 
-	if ( user && user.profile && user.profile.picture ) {
-		gravatar = '<img class="avatar ' + size + '" src="' + user.profile.picture + '" />';
+	if ( user && user.profile && user.profile.gravatar ) {
+		gravatar = '<img class="avatar ' + size + '" src="' + user.profile.gravatar + '" />';
 	} else {
 		var email = ( user && user.emails && user.emails[0].address ) || '';
 		//email = Email.normalize( email );
