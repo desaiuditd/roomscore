@@ -12,13 +12,16 @@ Template.myProfile.helpers(
 				$('#reset-gravatar-modal').modal('show');
 			},
 			'tap #reset-gravatar': function (event, template) {
-				console.log('reset')
 				userProfile.resetGravatar();
 				$('#reset-gravatar-modal').modal('hide');
 			},
 			'press #display-name': function (event, template) {
 				$(event.target).hide();
 				$('#edit-display-name').removeClass('hide');
+			},
+			'tap #edit-profile': function (event, template) {
+				$('.view').toggle();
+				$('.edit').toggle();
 			}
 		}
 	}

@@ -51,3 +51,24 @@ Template.registerHelper('currentUserFullName', function() {
 	return "";
 });
 
+Template.registerHelper('currentUserGender', function () {
+	var user = Meteor.user();
+
+	var gender = '<i class="fa fa-genderless"></i> No gender identified';
+
+	if ( user && user.profile && user.profile.gender ) {
+		switch (user.profile.gender) {
+			case 1:
+				gender = '<i class="fa fa-mars"></i> Male';
+				break;
+			case 2:
+				gender = '<i class="fa fa-venus"></i> Female';
+				break;
+			default:
+				gender = '<i class="fa fa-transgender"> Who knows ? We are not judgemental. :)';
+				break;
+		}
+	}
+
+	return gender;
+});

@@ -5,24 +5,34 @@
 		<div id="content">
 			{{> appNav}}
 
-			<div class="container">
+			<div class="container user-profile">
 
-				<h1 class="page-header">
-					<span id="change-gravatar">{{{currentUserGravatar size='large'}}}</span>
-					<span id="display-name">{{currentUserFullName}}</span>
-					<form id="edit-display-name" class="hide">
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="input-group">
-									<input name="display-name" type="text" class="form-control" placeholder="{{currentUserFullName}}" value="{{currentUserFullName}}" />
-									<span class="input-group-btn">
-										<button class="btn btn-default" type="submit">Save</button>
-									</span>
-								</div><!-- /input-group -->
-							</div><!-- /.col-lg-6 -->
-						</div><!-- /.row -->
-					</form>
-				</h1>
+				<button id="edit-profile" class="btn btn-sm btn-warning pull-right"><i class="fa fa-pencil"></i></button>
+
+				<div class="row">
+					<div class="gravatar-container large my-center-block">
+						<span id="change-gravatar">{{{currentUserGravatar size='large'}}}</span>
+					</div>
+				</div>
+
+				<form>
+					<div class="row">
+						<div class="col-xs-12">
+							<h3 class="page-header view text-center">{{currentUserFullName}}</h3>
+							<div class="edit row top-margin-30">
+								<div class="col-xs-12">
+									<input name="display-name" type="text" class="form-control"
+									       placeholder="{{currentUserFullName}}" value="{{currentUserFullName}}" />
+								</div><!-- /.col-lg-6 -->
+							</div><!-- /.row -->
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<p class="view text-muted text-center">{{{currentUserGender}}}, {{currentUserAge}}</p>
+						</div>
+					</div>
+				</form>
 
 			</div>
 
