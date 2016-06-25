@@ -7,10 +7,10 @@ room = new Meteor.Collection( 'room' );
 Schemas.coordinates = new SimpleSchema(
 	{
 		lat: {
-			type: Decimal
+			type: Number
 		},
 		long: {
-			type: Decimal
+			type: Number
 		}
 	}
 );
