@@ -3,5 +3,10 @@
  */
 var currentDate = new Date();
 Template.footer.helpers( {
-	currentYear: currentDate.getFullYear()
+	currentYear: currentDate.getFullYear(),
+	isPlusRequired: function () {
+		
+	}
 } );
+
+
