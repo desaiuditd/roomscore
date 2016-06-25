@@ -80,17 +80,17 @@ FlowRouter.route( '/me', {
 	}
 } );
 
-FlowRouter.route( '/:_username', {
-	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
-	name: 'userProfile',
-	action: function (params, queryParams) {
-
-		Tracker.autorun( function () {
-			BlazeLayout.render( 'userProfile' );
-		} );
-
-	}
-} );
+// FlowRouter.route( '/:_username', {
+// 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
+// 	name: 'userProfile',
+// 	action: function (params, queryParams) {
+//
+// 		Tracker.autorun( function () {
+// 			BlazeLayout.render( 'userProfile' );
+// 		} );
+//
+// 	}
+// } );
 
 /**
  * Accounts Routes
