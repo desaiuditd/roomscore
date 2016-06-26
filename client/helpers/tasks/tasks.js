@@ -24,7 +24,7 @@ Template.tasks.helpers(
             }
         },
         getTasks: function () {
-            return task.find().fetch();
+            return task.find({"status": "pending"}).fetch();
         },
         isChore: function (type) {
             if (type == "chores")

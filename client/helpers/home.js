@@ -6,7 +6,7 @@ Template.home.helpers(
     {
 
         getTasks: function () {
-            var allTasks =  task.find({}, {"sort" : ['dueDate', 'desc']}).fetch();
+            var allTasks =  task.find({"status": "pending"}, {"sort" : ['dueDate', 'desc']}).fetch();
             var resultTasks = [];
             for (i = 0; i < allTasks.length; i++) {
                 if (allTasks[i].type == "chores") {
@@ -39,10 +39,19 @@ Template.home.helpers(
                 $(event.target).closest('li').children('#dueDate').show();
                 $(event.target).closest('li').children('itemList').animate({left: "0"}, "slow");
             },
+            'tap li.each-taskDash .btn-success': function (event, template) {
+                event.preventDefault();
+                var _id = $(event.target).closest('li').data('id');
+                Session.set("CompletedId", _id);
+                console.log(_id);
+                MeteorCamera.getPicture([], sendForReview.savePic);
+                FlowRouter.go('home');
+            },
             'tap li.each-taskDash': function (event, template) {
                 var _id = $(event.target).closest('li').data('id');
                 FlowRouter.go('editTask', {_id: _id});
             }
+
         },
         isChore: function (type) {
             return type == "chores";

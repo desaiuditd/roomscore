@@ -9,10 +9,10 @@
 			{{#if getTasksForReview}}
 				<ul class="card-container">
 					{{#each getTasksForReview}}
-						<li class="js-tinder-card tinder-card">
+						<li data-id="{{_id}}" class="js-tinder-card tinder-card">
 							<h4 class="text-center">{{description}}</h4>
-							{{#if pictureForReview}}
-								<img class="img-thumbnail" src="{{pictureForReview}}" />
+							{{#if pictureForReview this.picturesForReview}}
+								<img class="img-thumbnail" style="max-height: 250px;" src="{{this.picturesForReview}}" />
 							{{/if}}
 							<div class="tinder-swipe-actions btn-group btn-group-justified">
 								<a class="swipe-left btn btn-danger">Nay!</a>
@@ -25,6 +25,13 @@
 						<h1 class="text-center">{{ > emoji ':tada:'}}</h1>
 					</li>
 				</ul>
+            {{else}}
+                <ul class="card-container">
+                    <li class="tinder-card">
+                        <h4 class="text-muted text-center">No pending Tasks for Review</h4>
+                        <h1 class="text-center">{{ > emoji ':tada:'}}</h1>
+                    </li>
+                </ul>
 			{{/if}}
 		</div>
 
