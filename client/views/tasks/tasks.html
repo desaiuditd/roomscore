@@ -1,3 +1,10 @@
 <template name="tasks">
 	List of Tasks
+    <div id = "taskList">
+        <ul>
+            {{#each getTasks}}
+                <li>{{description}}</li>
+            {{/each}}
+        </ul>
+    </div>
 </template>
