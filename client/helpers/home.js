@@ -45,9 +45,8 @@ Template.home.helpers(
             }
         },
         isChore: function (type) {
-            if (type == "chores")
-                return true;
-            return false;
+            return type == "chores";
+            
         },
         convertDate: function (date) {
             console.log(date);
@@ -55,7 +54,14 @@ Template.home.helpers(
             var currentDate = new Date();
             var diff = Math.floor(Math.abs((date.getTime() - currentDate.getTime()) / (1000 * 60 * 60 * 24)));
             console.log(diff);
-            var stringDate = "Due in " + diff + " days";
+            var stringDate;
+            if (diff == 1) {
+                stringDate = "Due today";
+            } else if (diff == 2){
+                stringDate = "Due tomorrow";
+            } else {
+                stringDate = "Due in " + diff + " days";
+            }
             return stringDate;
             // date.getDate();
 
