@@ -4,9 +4,9 @@
         {{> appNav}}
         <form class="form-horizontal" role="form" method="get" action="#">
             <!--<div class="form-horizontal">-->
-                <div class="form-group" style="margin-bottom: 0px;">
+                <div class="form-group" style="margin-bottom: 0;">
                     <div class=" pull-right col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-success btn-lg">Add task</button>
+                        <button type="submit" id="addTask" class="btn btn-success btn-lg">Add task</button>
                     </div>
                 </div>
                 <div class="form-group">
@@ -32,7 +32,7 @@
                 <script>
                     $(".js-example-basic-multiple").select2();
                 </script>
-                <select class="roommate-list js-example-responsive col-sm-10" style="width: 80%; margin-left: 10%;" id="mySubjects" data-placeholder="Choose contributors..." multiple="multiple">
+                <select class="roommate-list js-example-responsive col-sm-10" id="roommateList" style="width: 80%; margin-left: 10%;" id="mySubjects" data-placeholder="Choose contributors..." multiple="multiple">
                     {{#each roommate}}
                         <option>{{this.name}}</option>
                     {{/each}}
@@ -62,16 +62,16 @@
             </div>
 
 
-                <span id="choresOption">
+                <div id="choresOption">
                 <div class="form-group">
                     <label for="dueDate" class="col-sm-2 control-label">Due Date</label>
                     <div class="col-sm-10">
                         <input type="date" class="form-control" id="dueDate" placeholder="Enter due date" />
                     </div>
                 </div>
-                </span>
+                </div>
 
-            <span id="shopOption" style="display: none">
+            <div id="shopOption" style="display: none">
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Location</label>
                     <div class="col-sm-10">
@@ -80,23 +80,13 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-10">
-                        <label for="assistToggle" class="col-sm-2 control-label">Nearby Assist</label>
-                        <input type="checkbox" class="form-control" id="assistToggle" />
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <label for="assistToggle" class="col-sm-2 control-label">
+                            <input type="checkbox" style="text-align: center;" class="checkbox-inline" id="assistToggle" />
+                            Nearby Assist</label>
                     </div>
                 </div>
-            </span>
-
-
-            <!--<div class="form-group">-->
-                <!--<div class="col-sm-offset-2 col-sm-10">-->
-                    <!--<div class="checkbox">-->
-                        <!--<label><input type="checkbox" /> Remember me</label>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-
+            </div>
         </form>
     </div>
 </template>

@@ -19,6 +19,33 @@ Template.createTask.events(
                 $('#shopOption').show();
             }
             return false;
+        },
+        'submit #addTask': function () {
+            var flag = 0;
+            var description = $('#inputEmail3').val();
+            var type = $('taskType').val().toLowerCase();
+            var assignees = $('#roommateList').val();
+            var roomId = user.room_id;
+            var authId = user._id;
+            var status = "pending";
+            var location = [];
+            var dueDate = "";
+
+            if (type == "chores") {
+                dueDate = $('#dueDate').val();
+            }
+            var data = {
+                'description': description,
+                'type': type,
+                'status': status,
+                'room_id': roomId,
+                'author_id': authId,
+                'assignees': assignees,
+                'location': location,
+                'dueDate': dueDate
+            };
+
+
         }
     }
 );
