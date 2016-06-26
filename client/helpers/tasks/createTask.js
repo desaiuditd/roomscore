@@ -10,6 +10,9 @@ Template.createTask.helpers({
         return allRoommates;
     },
     chores: function () {
-        return true;
+        if ($('#taskType').val() == "Chores")
+            return true;
+        else
+            return false;
     }
 });
