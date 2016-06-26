@@ -22,7 +22,7 @@ Template.myProfile.helpers(
 			'tap #save-profile': function (event, template) {
 
 				var displayName = $("#form-profile").find('input[name="display-name"]').val();
-				var tagline = $("#form-profile").find('input[name="tagline"]').val();;
+				var tagline = $("#form-profile").find('input[name="tagline"]').val();
 				var gender = $("#form-profile").find('select[name="gender"]').val();
 				var dob = $("#form-profile").find('input[name="dob"]').val();
 				var phone = $("#form-profile").find('input[name="phone"]').val();;

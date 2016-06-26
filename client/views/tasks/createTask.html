@@ -3,14 +3,19 @@
     <div id="content">
         {{> appNav}}
         <form class="form-horizontal" role="form" method="get" action="#">
-            <div class="form-horizontal">
+            <!--<div class="form-horizontal">-->
+                <div class="form-group" style="margin-bottom: 0px;">
+                    <div class=" pull-right col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success btn-lg">Add task</button>
+                    </div>
+                </div>
                 <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Description of Task</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="inputEmail3" placeholder="What's to be done?" />
                 </div>
                     </div>
-            </div>
+            <!--</div>-->
 
             <div class="form-group">
             <label for="taskType" class="col-sm-2 control-label">Select Task Type</label>
@@ -23,24 +28,64 @@
                 </div>
 
             <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Location</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="Enter nearby location" />
-            </div>
-            </div>
-
-            <div class="form-group">
                 <label for="mySubjects" class="col-sm-2 control-label">Contributors</label><br>
-                <select class="js-example-responsive" style="width: 80%; margin-left: 10%;" id="mySubjects" data-placeholder="Choose contributors..." multiple>
-                    {{#each subjects}}
+                <script>
+                    $(".js-example-basic-multiple").select2();
+                </script>
+                <select class="roommate-list js-example-responsive col-sm-10" style="width: 80%; margin-left: 10%;" id="mySubjects" data-placeholder="Choose contributors..." multiple="multiple">
+                    {{#each roommate}}
                         <option>{{this.name}}</option>
                     {{/each}}
                 </select>
             </div>
 
-            <div class="">
+            <div class="form-group">
 
+                <label class="col-sm-2 control-label" style="display: inline-block;">Repeating Task</label>
+                <div class="toggle-button" style="float: right; margin-right: 10px;">
+                    <button></button>
+                </div>
+                <div class="col-sm-10" id="frequency" style="display: none; margin-top: 15px;">
+                    <select class="form-control" id="taskType">
+                        <option>Everyday</option>
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                    </select>
+                </div>
             </div>
+
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <label for="points" class="control-label">Points to be awarded</label>
+                    <input type="number" class="col-sm-4 form-control" style="display: inline-block; width: auto;" id="points" placeholder="Enter Amount..." />
+                </div>
+            </div>
+
+            {{#if chores}}
+                <div class="form-group">
+                    <label for="dueDate" class="col-sm-2 control-label">Due Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="dueDate" placeholder="Enter due date" />
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if not chores}}
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label">Location</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPassword3" placeholder="Enter nearby location" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="assistToggle" class="col-sm-2 control-label">Nearby Assist</label>
+                    <div class="col-sm-10">
+                        <input type="checkbox" class="form-control" id="assistToggle" />
+                    </div>
+                </div>
+            {{/if}}
+
             <!--<div class="form-group">-->
                 <!--<div class="col-sm-offset-2 col-sm-10">-->
                     <!--<div class="checkbox">-->
@@ -48,14 +93,8 @@
                     <!--</div>-->
                 <!--</div>-->
             <!--</div>-->
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
-                </div>
-            </div>
+
+
         </form>
-
-        Add New Task
-
     </div>
 </template>
