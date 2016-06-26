@@ -45,9 +45,9 @@ Template.home.helpers(
                 Session.set("CompletedId", _id);
                 console.log(_id);
                 MeteorCamera.getPicture([], sendForReview.savePic);
-                FlowRouter.go('home');
             },
-            'tap li.each-taskDash': function (event, template) {
+            'tap li.each-taskDash .itemList': function (event, template) {
+                event.preventDefault();
                 var _id = $(event.target).closest('li').data('id');
                 FlowRouter.go('editTask', {_id: _id});
             }
