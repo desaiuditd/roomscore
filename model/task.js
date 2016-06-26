@@ -43,6 +43,10 @@ Schemas.task = new SimpleSchema(
 				}
 			}
 		},
+		picturesForReview: {
+			type: String,
+			optional: true
+		},
 		dueDate: {
 			type: Date,
 			optional:true
