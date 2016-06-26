@@ -35,6 +35,9 @@ webhookRoute.route( '/api/tasks', function( params, req, res, next ) {
 				var data = reqUrl.query;
 
 				delete data.create;
+				if ( ! Array.isArray(data.assignees) ) {
+					data.assignees = [ data.assignees ];
+				}
 
 				console.log(data);
 
