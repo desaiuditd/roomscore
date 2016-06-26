@@ -9,11 +9,12 @@ Template.tasks.helpers(
                 event.preventDefault();
                 console.log("12");
                 $(event.target).closest('li').children('button').show();
-                // $(event.target).closest('li').animate("left": "-30px")
+                $(event.target).closest('li').animate({left: "-30px"}, "slow");
             },
             'panright li.each-task':function (event, template) {
                 event.preventDefault();
                 $(event.target).closest('li').children('button').hide();
+                $(event.target).closest('li').animate({left: "0px"}, "slow");
             }
         },
         getTasks: function () {
