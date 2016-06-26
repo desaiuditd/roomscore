@@ -85,3 +85,17 @@ Template.registerHelper('currentUserTagline', function (isPlaceholder) {
 
 	return isPlaceholder ? 'What\'s on your mood ?' : '';
 });
+
+Template.registerHelper('currentUserAge', function (isPlaceholder) {
+	var user = Meteor.user();
+
+	if ( user && user.profile && user.profile.dob ) {
+		var dob = new Date(user.profile.dob);
+		var ageDifMs = Date.now() - dob.getTime();
+		var ageDate = new Date(ageDifMs); // miliseconds from epoch
+		var age = Math.abs(ageDate.getUTCFullYear() - 1970);
+		return isPlaceholder ? moment(dob).format('MM/DD/YYYY') : age;
+	}
+
+	return isPlaceholder ? '' : 'Immortal';
+});

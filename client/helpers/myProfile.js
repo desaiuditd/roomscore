@@ -24,10 +24,8 @@ Template.myProfile.helpers(
 				var displayName = $("#form-profile").find('input[name="display-name"]').val();
 				var tagline = $("#form-profile").find('input[name="tagline"]').val();;
 				var gender = $("#form-profile").find('select[name="gender"]').val();
-				var dob = '';
+				var dob = $("#form-profile").find('input[name="dob"]').val();
 				var phone = '';
-
-				console.log(gender);
 
 				var data = {
 					'profile.name': displayName,
