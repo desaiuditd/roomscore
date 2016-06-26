@@ -1,12 +1,27 @@
 <template name="reviewTasks">
+
+	{{#HammerTouchArea gestureMap=reviewGestures}}
+
 	<div id="content">
 		{{> appNav}}
 
 		<div class="container review-tasks">
-			Review
+			{{#if getTasksForReview}}
+				<ul class="card-container">
+					{{#each getTasksForReview}}
+						<li class="tinder-card">
+							<h4 class="text-center">{{description}}</h4>
+							<img class="img-thumbnail" src="{{pictureForReview}}" />
+						</li>
+					{{/each}}
+				</ul>
+			{{/if}}
 		</div>
 
 		{{> footer}}
 
 	</div>
+
+	{{/HammerTouchArea}}
+
 </template>
