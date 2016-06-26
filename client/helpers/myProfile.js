@@ -12,14 +12,51 @@ Template.myProfile.helpers(
 				$('#reset-gravatar-modal').modal('show');
 			},
 			'tap #reset-gravatar': function (event, template) {
-				console.log('reset')
 				userProfile.resetGravatar();
 				$('#reset-gravatar-modal').modal('hide');
 			},
-			'press #display-name': function (event, template) {
-				$(event.target).hide();
-				$('#edit-display-name').removeClass('hide');
+			'tap #edit-profile': function (event, template) {
+				$('.view').toggle();
+				$('.edit').toggle();
+			},
+			'tap #save-profile': function (event, template) {
+
+				var displayName = $("#form-profile").find('input[name="display-name"]').val();
+				var tagline = $("#form-profile").find('input[name="tagline"]').val();;
+				var gender = $("#form-profile").find('select[name="gender"]').val();
+				var dob = '';
+				var phone = '';
+
+				console.log(gender);
+
+				var data = {
+					'profile.name': displayName,
+					'profile.tagline': tagline,
+					'profile.gender': gender,
+					'profile.dob': dob,
+					'profile.phone': phone
+				};
+
+				var profile = userProfile.saveProfile(data);
+
+				if ( profile ) {
+					$('.view').toggle();
+					$('.edit').toggle();
+				} else {
+					// Todo Display error.
+				}
+			},
+			'tap #cancel-profile': function (event, template) {
+				$('.view').toggle();
+				$('.edit').toggle();
 			}
+		},
+		isGender: function (gender) {
+			var user = Meteor.user();
+			if ( user && user.profile && user.profile.gender ) {
+				return gender == user.profile.gender ? 'selected' : '';
+			}
+			return '';
 		}
 	}
 );

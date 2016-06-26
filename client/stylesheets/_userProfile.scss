@@ -1,0 +1,25 @@
+.user-profile {
+
+	.edit {
+		display: none;
+	}
+
+	.gravatar-container {
+
+		&.small {
+			width: 25px;
+			height: 25px;
+		}
+
+		&.medium {
+			width: 50px;
+			height: 50px;
+		}
+
+		&.large {
+			width: 75px;
+			height: 75px;
+		}
+
+	}
+}
