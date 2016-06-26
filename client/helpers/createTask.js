@@ -10,6 +10,6 @@ Template.createTask.helpers({
         return allRoommates;
     },
     chores: function () {
-        
+        return true;
     }
 });
