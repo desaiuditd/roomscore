@@ -7,7 +7,9 @@
 
 			<div class="container user-profile">
 
-				<button id="edit-profile" class="btn btn-sm btn-warning pull-right"><i class="fa fa-pencil"></i></button>
+				<button id="edit-profile" class="view btn btn-sm btn-warning pull-right"><i class="fa fa-pencil"></i></button>
+				<button id="save-profile" class="edit btn btn-sm btn-success pull-right"><i class="fa fa-check"></i></button>
+				<button id="cancel-profile" class="edit btn btn-sm btn-default pull-right"><i class="fa fa-undo"></i></button>
 
 				<div class="row">
 					<div class="gravatar-container large my-center-block">
@@ -15,10 +17,13 @@
 					</div>
 				</div>
 
-				<form>
+				<form id="form-profile">
 					<div class="row">
 						<div class="col-xs-12">
-							<h3 class="page-header view text-center">{{currentUserFullName}}</h3>
+							<h3 class="page-header view text-center">
+								{{currentUserFullName}}<br/>
+								<small class="text-muted"><em>{{currentUserTagline}}</em></small>
+							</h3>
 							<div class="edit row top-margin-30">
 								<div class="col-xs-12">
 									<input name="display-name" type="text" class="form-control"
@@ -29,7 +34,27 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12">
+							<div class="edit row top-margin-30">
+								<div class="col-xs-12">
+									<input name="tagline" type="text" class="form-control"
+									       placeholder="{{currentUserTagline true}}" value="{{currentUserTagline}}" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
 							<p class="view text-muted text-center">{{{currentUserGender}}}, {{currentUserAge}}</p>
+							<div class="edit row top-margin-30">
+								<div class="col-xs-12">
+									<select class="gender-select" name="gender">
+										<option value=""><i class="fa fa-genderless"></i> No gender identified</option>
+										<option {{isGender '1'}} value="1"><i class="fa fa-mars"></i> Male</option>
+										<option {{isGender '2'}} value="2"><i class="fa fa-venus"></i> Female</option>
+										<option {{isGender '3'}} value="3"><i class="fa fa-transgender"></i> Who knows ? We are not judgemental. :)</option>
+									</select>
+								</div>
+							</div>
 						</div>
 					</div>
 				</form>

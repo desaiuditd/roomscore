@@ -58,17 +58,30 @@ Template.registerHelper('currentUserGender', function () {
 
 	if ( user && user.profile && user.profile.gender ) {
 		switch (user.profile.gender) {
-			case 1:
+			case '1':
 				gender = '<i class="fa fa-mars"></i> Male';
 				break;
-			case 2:
+			case '2':
 				gender = '<i class="fa fa-venus"></i> Female';
 				break;
+			case '3':
+				gender = '<i class="fa fa-transgender"></i> Who knows ? We are not judgemental. :)';
+				break;
 			default:
-				gender = '<i class="fa fa-transgender"> Who knows ? We are not judgemental. :)';
+				gender = '<i class="fa fa-genderless"></i> No gender identified';
 				break;
 		}
 	}
 
 	return gender;
+});
+
+Template.registerHelper('currentUserTagline', function (isPlaceholder) {
+	var user = Meteor.user();
+
+	if ( user && user.profile && user.profile.tagline ) {
+		return user.profile.tagline;
+	}
+
+	return isPlaceholder ? 'What\'s on your mood ?' : '';
 });
