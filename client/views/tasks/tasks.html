@@ -3,10 +3,11 @@
 
         <div id="content">
     {{> appNav}}
-    <h1 class="" style=" text-align: center; background-color: #f8f8f8; margin-bottom: 0; margin-top: 0;">Task List</h1>
+    <!--<h1 class="" style=" text-align: center; background-color: #f8f8f8; margin-bottom: 0; margin-top: 0;">Task List</h1>-->
     <div id = "taskList">
 
         <ul class="list-group">
+            <li class="nav-header disabled bg-primary" style="line-height: 25px; padding: 10px 20px; font-size: 20px;">Your Task List</li>
             {{#each getTasks}}
                 {{#if isChore this.type}}
                     <li class=" list-group-item each-task" style="background-color: #D0D0D0; width: 100%; display: inline-block; float: left;">

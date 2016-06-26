@@ -7,3 +7,7 @@ Template.home.events(
         
     }
 );
+
+Template.home.onCreated(function () {
+    Meteor.subscribe('task');
+});

@@ -1,14 +1,42 @@
 <template name="home">
-
-	<div id="content">
-		{{> appNav}}
+    {{#HammerTouchArea gestureMap=showDelete}}
+    <div id="content">
+        {{> appNav}}
         <h1 class="" style=" text-align: center; background-color: #f8f8f8; margin-bottom: 0; margin-top: 0;">Dashboard</h1>
-		<div class="container">
+        <hr>
+        <div id = "taskList">
+            <ul class="list-group" style="overflow: hidden; margin: 4px 2px">
+                <li class="nav-header disabled bg-primary" style="line-height: 25px; padding: 10px 20px; font-size: 20px;">Upcoming Tasks</li>
+                {{#each getTasks}}
+                    {{#if isChore this.type}}
+                        <li class=" list-group-item each-taskDash" style="background-color: #D0D0D0; width: 100%; display: inline-block; float: left;">
+                    <span style="width: 100%" class="itemList"><i class="fa fa-tasks" aria-hidden="true"></i>
+                    <span style="margin-left: 20px; line-height: 34px">{{this.description}}</span></span>
+                            <span style="float:right; line-height: 34px" id="dueDate">{{convertDate this.dueDate}}</span>
+                            <button class="bg-success " style="float: right; width: 10%; height: 34px; display: none;"><i class="fa fa-check" aria-hidden="true"></i></button>
+                            <button class="bg-danger" style="float: right; width: 10%; height: 34px; display: none;" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+            <hr>
 
-		</div>
+            <ul class="list-group" style="overflow: hidden; margin: 4px 2px">
+                <li class="nav-header disabled bg-primary" style="line-height: 25px; padding: 10px 20px; font-size: 20px;">Nearby Shopping Items</li>
+                {{#each getTasks}}
+                    {{#unless isChore this.type}}
+                        <li class=" list-group-item each-taskDash" style="background-color: #EEEEEE; width: 100%; display: inline-block; float: left;">
+                    <span style="width: 100%" class="itemList"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span style="margin-left: 20px; line-height: 34px">{{this.description}}</span></span>
+                            <button class="bg-success" style="float: right; width: 10%; height: 34px; display: none;"><i class="fa fa-check" aria-hidden="true"></i></button>
+                            <button class="bg-danger" style="float: right;width: 10%; height: 34px; display: none;"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 
-		{{> footer}}
-
-	</div>
-
+    {{> footer}}
+{{/HammerTouchArea}}
 </template>
