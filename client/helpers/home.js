@@ -38,6 +38,10 @@ Template.home.helpers(
                 $(event.target).closest('li').children('button').hide();
                 $(event.target).closest('li').children('#dueDate').show();
                 $(event.target).closest('li').children('itemList').animate({left: "0"}, "slow");
+            },
+            'tap li.each-taskDash': function (event, template) {
+                var _id = $(event.target).closest('li').data('id');
+                FlowRouter.go('editTask', {_id: _id});
             }
         },
         isChore: function (type) {

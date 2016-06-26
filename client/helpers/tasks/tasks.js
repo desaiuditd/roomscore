@@ -17,6 +17,10 @@ Template.tasks.helpers(
                 $(event.target).closest('li').children('button').hide();
                 $(event.target).closest('li').children('#dueDate').show();
                 $(event.target).closest('li').children('itemList').animate({left: "0"}, "slow");
+            },
+            'tap li.each-task': function (event, template) {
+              var _id = $(event.target).closest('li').data('id');
+              FlowRouter.go('editTask', {_id: _id});
             }
         },
         getTasks: function () {

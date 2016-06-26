@@ -10,7 +10,7 @@
             <li class="nav-header disabled bg-primary" style="line-height: 25px; padding: 10px 20px; font-size: 20px;">Your Task List</li>
             {{#each getTasks}}
                 {{#if isChore this.type}}
-                    <li class=" list-group-item each-task" style="background-color: #D0D0D0; width: 100%; display: inline-block; float: left;">
+                    <li data-id="{{_id}}" class=" list-group-item each-task" style="background-color: #D0D0D0; width: 100%; display: inline-block; float: left;">
                         <span style="width: 100%" class="itemList"><i class="fa fa-tasks" aria-hidden="true"></i>
                         <span style="margin-left: 20px; line-height: 34px">{{this.description}}</span></span>
                         <span style="float:right; line-height: 34px" id="dueDate">{{convertDate this.dueDate}}</span>
@@ -18,7 +18,7 @@
                         <button class="bg-danger" style="float: right; width: 10%; height: 34px; display: none;" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
                     </li>
                 {{else}}
-                    <li class=" list-group-item each-task" style="background-color: #EEEEEE; width: 100%; display: inline-block; float: left;">
+                    <li data-id="{{_id}}" class=" list-group-item each-task" style="background-color: #EEEEEE; width: 100%; display: inline-block; float: left;">
                         <span style="width: 100%" class="itemList"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span style="margin-left: 20px; line-height: 34px">{{this.description}}</span></span>
                         <button class="bg-success" style="float: right; width: 10%; height: 34px; display: none;"><i class="fa fa-check" aria-hidden="true"></i></button>

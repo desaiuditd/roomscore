@@ -48,7 +48,7 @@ FlowRouter.route( '/tasks/new', {
 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
 	name: 'createTask',
 	subscriptions: function(params, queryParams) {
-		this.register('myRoommates', Meteor.subscribe('roommates'));
+		this.register('roommates', Meteor.subscribe('roommates'));
 	},
 	action: function (params, queryParams) {
 
@@ -62,10 +62,23 @@ FlowRouter.route( '/tasks/new', {
 FlowRouter.route( '/tasks/:_id', {
 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
 	name: 'editTask',
+	subscriptions: function(params, queryParams) {
+		this.register('task', Meteor.subscribe('task'));
+		this.register('roommates', Meteor.subscribe('roommates'));
+	},
 	action: function (params, queryParams) {
 
 		Tracker.autorun( function () {
-			BlazeLayout.render( 'editTask' );
+
+			var obj = task.findOne({_id: params._id});
+
+			console.log(obj);
+
+			if ( obj ) {
+				BlazeLayout.render( 'editTask', {data: obj} );
+			} else {
+				BlazeLayout.render( '404' );
+			}
 		} );
 
 	}
