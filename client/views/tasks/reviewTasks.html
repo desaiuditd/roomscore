@@ -11,7 +11,13 @@
 					{{#each getTasksForReview}}
 						<li class="tinder-card">
 							<h4 class="text-center">{{description}}</h4>
-							<img class="img-thumbnail" src="{{pictureForReview}}" />
+							{{#if pictureForReview}}
+								<img class="img-thumbnail" src="{{pictureForReview}}" />
+							{{/if}}
+							<div class="tinder-swipe-actions btn-group btn-group-justified">
+								<a class="btn btn-danger">Nay!</a>
+								<a class="btn btn-success">Yay!</a>
+							</div>
 						</li>
 					{{/each}}
 				</ul>

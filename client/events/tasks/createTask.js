@@ -2,10 +2,10 @@
  * Created by Mj on 25-Jun-16.
  */
 
-Template.createTask.onCreated(function () {
+Template.reviewTasks.onCreated(function () {
     var self = this;
     self.autorun(function() {
-        self.subscribe("roommates");
+        self.subscribe("task");
     });
 });
 
