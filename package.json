@@ -6,8 +6,6 @@
   },
   "dependencies": {
     "body-parser": "^1.15.1",
-    "meteor-node-stubs": "~0.2.0",
-//    "react-native": "^0.28.0",
-//    "react-native-swipe-cards": "0.0.7"
+    "meteor-node-stubs": "~0.2.0"
   }
 }
