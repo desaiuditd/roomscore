@@ -25,10 +25,6 @@ Template.myProfile.onRendered( function () {
 			}
 		});
 
-		$('.dob-datepicker').datepicker(
-			{
-				autoclose: true
-			}
-		);
+		$('.dob-datepicker').datepicker({autoclose: true});
 	} );
 } );

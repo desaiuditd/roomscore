@@ -2,7 +2,7 @@
  * Created by Mj on 25-Jun-16.
  */
 
-Template.tasks.onCreated(function () {
+Template.tasks.onRendered(function () {
 	Meteor.subscribe('task');
 }); 
 // Template.tasks.events({

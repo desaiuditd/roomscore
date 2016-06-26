@@ -126,3 +126,18 @@ Template.registerHelper('currentUserRoomScore', function () {
 
 	return 786;
 });
+
+Template.registerHelper('currentUserLocation', function () {
+	var user = Meteor.user();
+
+	if ( user && user.profile && user.profile.location ) {
+		if ( user.profile.location.address ) {
+			return user.profile.location.address;
+		} else {
+			return user.profile.location.lat + ', ' + user.profile.location.long;
+		}
+	}
+
+	return "Around The Globe";
+
+});
