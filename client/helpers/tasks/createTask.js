@@ -3,11 +3,13 @@
  */
 
 Template.createTask.helpers({
-    roommate: function () {
-        // To return all roommates.
+    getRoomMates: function () {
         var user = Meteor.user();
-        var allRoommates = [{'name':'Rohit Jacob'}, {'name':'Udit Desai'}, {'name':'Mahendra Mhatre'}, {'name':'Kuldeep Ghate'}];
-        return allRoommates;
+        if ( user && user._id ) {
+            var roommates = Meteor.users.find({"_id": { "$ne": user._id }}).fetch();
+            return roommates;
+        }
+        return [];
     },
     chores: function () {
         if ($('#taskType').val() == "Chores")

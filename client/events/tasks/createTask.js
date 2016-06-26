@@ -2,6 +2,13 @@
  * Created by Mj on 25-Jun-16.
  */
 
+Template.createTask.onCreated(function () {
+    var self = this;
+    self.autorun(function() {
+        self.subscribe("roommates");
+    });
+});
+
 Template.createTask.events(
     {
         'click .toggle-button button': function () {
@@ -20,16 +27,18 @@ Template.createTask.events(
             }
             return false;
         },
-        'submit #addTask': function () {
+        'submit #form-create-task': function (event, template) {
+            event.preventDefault();
+            var user = Meteor.user();
             var flag = 0;
             var description = $('#inputEmail3').val();
-            var type = $('taskType').val().toLowerCase();
+            var type = $('#taskType').val().toLowerCase();
             var assignees = $('#mySubjects').val();
-            var roomId = user.room_id;
+            var roomId = 1;
             var authId = user._id;
             var status = "pending";
-            var location = [];
-            var dueDate = "";
+            var location = {};
+            var dueDate = $('#dueDate').val();
 
             if (type == "chores") {
                 dueDate = $('#dueDate').val();
@@ -45,13 +54,20 @@ Template.createTask.events(
                 'dueDate': dueDate
             };
 
+            task.insert(data);
 
+            FlowRouter.go('tasks');
+
+            return false;
         }
     }
 );
 Template.createTask.onRendered(function () {
     this.autorun(function () {
-        $('.roommate-list').select2();
+        $('.roommate-list,#taskType').select2();
+        $('.dob-datepicker').datepicker({
+            autoclose: true
+        });
     })
     }
 );

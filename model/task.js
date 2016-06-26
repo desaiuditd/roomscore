@@ -29,7 +29,8 @@ Schemas.task = new SimpleSchema(
 			optional: true
 		},
 		location: {
-			type: Schemas.coordinates
+			type: Schemas.coordinates,
+			optional: true
 		},
 		timestamp: {
 			type: Date,

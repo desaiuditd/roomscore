@@ -11,34 +11,7 @@ Template.tasks.helpers(
             }
         },
         getTasks: function () {
-
-            // if(task.find().count() === 0)
-            //     console.log("here : "+task.find().fetch());
-            // return task.find().fetch();
-
-            return [
-                {description: 'Test 1',
-                    type: 'chores',
-                    status: 'completed',
-                    room_id: '1',
-                    author_id: '',
-                    assignees: ['rBdxcvp44s4nw4Bts'],
-                    contributors: ['rBdxcvp44s4nw4Bts']},
-                {description: 'Test 3',
-                    type: 'shopping',
-                    status: 'completed',
-                    room_id: '1',
-                    author_id: '',
-                    assignees: ['rBdxcvp44s4nw4Bts'],
-                    contributors: ['rBdxcvp44s4nw4Bts']},
-                {description: 'Test 2',
-                    type: 'shopping',
-                    status: 'completed',
-                    room_id: '1',
-                    author_id: '',
-                    assignees: ['rBdxcvp44s4nw4Bts'],
-                    contributors: ['rBdxcvp44s4nw4Bts']}
-            ];
+            return task.find().fetch();
         },
         isChore: function (type) {
             if (type == "chores")

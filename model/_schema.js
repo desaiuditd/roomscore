@@ -7,13 +7,16 @@ Schemas = {};
 Schemas.coordinates = new SimpleSchema(
     {
         lat: {
-            type: Number
+            type: Number,
+            optional: true
         },
         long: {
-            type: Number
+            type: Number,
+            optional: true
         },
         postalAddress: {
-            type: String
+            type: String,
+            optional: true
         }
     }
 );

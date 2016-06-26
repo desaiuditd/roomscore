@@ -47,6 +47,9 @@ FlowRouter.route( '/tasks/review', {
 FlowRouter.route( '/tasks/new', {
 	triggersEnter: [ AccountsTemplates.ensureSignedIn ],
 	name: 'createTask',
+	subscriptions: function(params, queryParams) {
+		this.register('myRoommates', Meteor.subscribe('roommates'));
+	},
 	action: function (params, queryParams) {
 
 		Tracker.autorun( function () {
