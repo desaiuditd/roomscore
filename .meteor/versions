@@ -64,6 +64,7 @@ mdg:camera@1.4.1
 mdg:validation-error@0.2.0
 meteor@1.1.15_1
 meteor-base@1.0.4
+meteorhacks:picker@1.0.3
 minifier-css@1.1.12_1
 minifier-js@1.1.12_1
 minimongo@1.0.17
