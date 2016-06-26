@@ -5,9 +5,15 @@
 Template.tasks.helpers(
     {
         showDelete: {
-            'swipeleft li.each-task':function (event, template) {
-                console.log($(event.target).closest('li.each-task button'));
+            'panleft li.each-task':function (event, template) {
+                event.preventDefault();
+                console.log("12");
                 $(event.target).closest('li').children('button').show();
+                // $(event.target).closest('li').animate("left": "-30px")
+            },
+            'panright li.each-task':function (event, template) {
+                event.preventDefault();
+                $(event.target).closest('li').children('button').hide();
             }
         },
         getTasks: function () {
