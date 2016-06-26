@@ -32,7 +32,7 @@
                 <script>
                     $(".js-example-basic-multiple").select2();
                 </script>
-                <select class="roommate-list js-example-responsive col-sm-10" id="roommateList" style="width: 80%; margin-left: 10%;" id="mySubjects" data-placeholder="Choose contributors..." multiple="multiple">
+                <select class="roommate-list js-example-responsive form-control" style="width: 80%; margin-left: 10%;" id="mySubjects" data-placeholder="Choose contributors..." multiple="multiple">
                     {{#each roommate}}
                         <option>{{this.name}}</option>
                     {{/each}}
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <div class="col-sm-10">
                     <label for="points" class="control-label">Points to be awarded</label>
-                    <input type="number" class="col-sm-4 form-control" style="display: inline-block; width: auto;" id="points" placeholder="Enter Amount..." />
+                    <input type="number" class="col-sm-4 form-control" style="display: inline-block; width: auto;" id="points" placeholder="Enter Points..." />
                 </div>
             </div>
 

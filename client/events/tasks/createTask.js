@@ -24,7 +24,7 @@ Template.createTask.events(
             var flag = 0;
             var description = $('#inputEmail3').val();
             var type = $('taskType').val().toLowerCase();
-            var assignees = $('#roommateList').val();
+            var assignees = $('#mySubjects').val();
             var roomId = user.room_id;
             var authId = user._id;
             var status = "pending";
