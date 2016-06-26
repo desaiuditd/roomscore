@@ -4,6 +4,12 @@
 
 Template.tasks.helpers(
     {
+        showDelete: {
+            'swipeleft li.each-task':function (event, template) {
+                console.log($(event.target).closest('li.each-task button'));
+                $(event.target).closest('li').children('button').show();
+            }
+        },
         getTasks: function () {
 
             // if(task.find().count() === 0)
@@ -38,11 +44,6 @@ Template.tasks.helpers(
             if (type == "chores")
                 return true;
             return false;
-        },
-        showDelete: {
-            'swipeleft tr.each-task':function (event, template) {
-                $(event.target).closest('tr.each-task')
-            }
         }
     }
 );
