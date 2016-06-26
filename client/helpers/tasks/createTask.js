@@ -6,7 +6,7 @@ Template.createTask.helpers({
     getRoomMates: function () {
         var user = Meteor.user();
         if ( user && user._id ) {
-            var roommates = Meteor.users.find({"_id": { "$ne": user._id }}).fetch();
+            var roommates = Meteor.users.find({}).fetch();
             return roommates;
         }
         return [];
