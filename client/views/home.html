@@ -2,7 +2,8 @@
     {{#HammerTouchArea gestureMap=showDelete}}
     <div id="content">
         {{> appNav}}
-        <h1 class="" style=" text-align: center; background-color: #f8f8f8; margin-bottom: 0; margin-top: 0;">Dashboard</h1>
+        <div class="container">
+            <h1 class="" style=" text-align: center; background-color: #f8f8f8; margin-bottom: 0; margin-top: 0;">Dashboard</h1>
             <hr>
             <div id = "taskList">
                 <ul class="list-group" style="overflow: hidden; margin: 4px 2px">
@@ -35,6 +36,7 @@
                     {{/each}}
                 </ul>
             </div>
+        </div>
     </div>
 
     {{> footer}}
