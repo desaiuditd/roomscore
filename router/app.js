@@ -161,3 +161,13 @@ FlowRouter.notFound = {
 		BlazeLayout.render('404');
 	}
 };
+
+/**
+ * Oauth Routes
+ * */
+// Define the route to render the popup view
+FlowRouter.route('/oauth/authorize', {
+	action: function(params, queryParams) {
+		BlazeLayout.render('authorize', queryParams);
+	}
+});
