@@ -3,3 +3,17 @@
  */
 
 Schemas = {};
+
+Schemas.coordinates = new SimpleSchema(
+    {
+        lat: {
+            type: Number
+        },
+        long: {
+            type: Number
+        },
+        postalAddress: {
+            type: String
+        }
+    }
+);

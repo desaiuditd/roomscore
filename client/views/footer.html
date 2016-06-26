@@ -3,9 +3,11 @@
 		<div class="col-sm-12 col-md-10 col-lg-10 my-center-block">
 			<hr style="margin-bottom: 3px;">
 			<footer>
-                <div class="col-md-4 text-center">
-                    <a href="{{pathFor 'createTask'}}" class="large" style="font-size: xx-large;" role="button"><i class="fa fa-plus-circle"></i></a>
-                </div>
+				{{#if showAddTaskButton}}
+	                <div class="col-xs-12 text-center">
+	                    <a href="{{pathFor 'createTask'}}" class="large" style="font-size: xx-large;" role="button"><i class="fa fa-plus-circle"></i></a>
+	                </div>
+				{{/if}}
 			</footer>
 		</div>
 	</div>

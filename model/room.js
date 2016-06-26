@@ -4,20 +4,6 @@
 
 room = new Meteor.Collection( 'room' );
 
-Schemas.coordinates = new SimpleSchema(
-	{
-		lat: {
-			type: Number
-		},
-		long: {
-			type: Number
-		},
-		postalAddress: {
-			type: String
-		}
-	}
-);
-
 Schemas.room = new SimpleSchema(
 	{
 		name: {

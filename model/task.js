@@ -25,7 +25,11 @@ Schemas.task = new SimpleSchema(
 			type: [String]
 		},
 		contributors: {
-			type: [String]
+			type: [String],
+			optional: true
+		},
+		location: {
+			type: Schemas.coordinates
 		},
 		timestamp: {
 			type: Date,
@@ -39,8 +43,13 @@ Schemas.task = new SimpleSchema(
 				}
 			}
 		},
+		picturesForReview: {
+			type: String,
+			optional: true
+		},
 		dueDate: {
-			type: Date
+			type: Date,
+			optional:true
 		}
 	}
 );

@@ -24,5 +24,11 @@ Template.myProfile.onRendered( function () {
 				return gender.text;
 			}
 		});
+
+		$('.dob-datepicker').datepicker(
+			{
+				autoclose: true
+			}
+		);
 	} );
 } );

@@ -1,20 +1,21 @@
 img.avatar {
 
 	border-radius: 50%;
+	border: 1px solid #666;
 
 	&.small {
-		width: 25px;
-		height: 25px;
+		width: 30px;
+		height: 30px;
 	}
 
 	&.medium {
-		width: 50px;
-		height: 50px;
+		width: 60px;
+		height: 60px;
 	}
 
 	&.large {
-		width: 75px;
-		height: 75px;
+		width: 90px;
+		height: 90px;
 	}
 }
 
