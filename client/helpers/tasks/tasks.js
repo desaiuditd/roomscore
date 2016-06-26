@@ -18,7 +18,14 @@ Template.tasks.helpers(
                 $(event.target).closest('li').children('#dueDate').show();
                 $(event.target).closest('li').children('itemList').animate({left: "0"}, "slow");
             },
-            'tap li.each-task': function (event, template) {
+          'tap li.each-task .btn-success': function (event, template) {
+            event.preventDefault();
+            var _id = $(event.target).closest('li').data('id');
+            Session.set("CompletedId", _id);
+            console.log(_id);
+            MeteorCamera.getPicture([], sendForReview.savePic);
+          },
+            'tap li.each-task .itemList': function (event, template) {
               var _id = $(event.target).closest('li').data('id');
               FlowRouter.go('editTask', {_id: _id});
             }

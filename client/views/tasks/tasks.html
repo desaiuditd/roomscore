@@ -12,8 +12,8 @@
             {{#each getTasks}}
                 {{#if isChore this.type}}
                     <li data-id="{{_id}}" class=" list-group-item each-task" style="background-color: #D0D0D0; width: 100%; display: inline-block; float: left; padding: 0 0 0 15px;line-height: 45px;">
-                        <span style="width: 100%" class="itemList"><i class="fa fa-tasks" aria-hidden="true"></i>
-                        <span style="margin-left: 20px; line-height: 34px">{{this.description}}</span></span>
+                        <a style="width: 100%" class="itemList"><i class="fa fa-tasks" aria-hidden="true"></i>
+                        <span style="margin-left: 20px; line-height: 34px">{{this.description}}</span></a>
                         <span style="float:right; line-height: 45px" id="dueDate">{{convertDate this.dueDate}}</span>
                         <button class="btn-success " style="float: right; width: 12%; height: 45px; display: none; border: 0;"><i class="fa fa-check" aria-hidden="true"></i></button>
                         <button class="btn-danger" style="float: right; width: 12%; height: 45px; display: none; border: 0;" ><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
