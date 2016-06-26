@@ -9,7 +9,7 @@
         <ul class="list-group">
             {{#each getTasks}}
                 {{#if isChore this.type}}
-                    <li class=" list-group-item each-task" style="background-color: #666666">
+                    <li class=" list-group-item each-task" style="background-color: #D0D0D0">
                         <i class="fa fa-tasks" aria-hidden="true"></i><span style="margin-left: 20px;">{{this.description}}</span>
                     </li>
                 {{else}}
@@ -18,23 +18,6 @@
                     </li>
                 {{/if}}
             {{/each}}
-        </ul>
-        <table class = "table">
-            <thead class = "thead-inverse">
-                <tr>
-                    <th>no</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each getTasks}}
-                  <tr class="each-task"> <td>{{this.description}}</td> </tr>
-                {{/each}}
-            </tbody>
-        </table>
-
-        <ul>
-
         </ul>
     </div>
         </div>
