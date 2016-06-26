@@ -5,13 +5,29 @@
 Template.reviewTasks.helpers(
 	{
 		reviewGestures: {
-			'swipeleft li.tinder-card': function (event, template) {
-				console.log($(event.target).closest('li.tinder-card'));
-				$(event.target).closest('li.tinder-card').remove();
+			'swipeleft li.js-tinder-card': function (event, template) {
+				$(event.target).closest('li.tinder-card').addClass('magictime tinLeftOut');
+				setTimeout(function(){
+					$(event.target).closest('li.tinder-card').remove();
+				}, 900);
 			},
-			'swiperight li.tinder-card': function (event, template) {
-				console.log($(event.target).closest('li.tinder-card'));
-				$(event.target).closest('li.tinder-card').remove();
+			'swiperight li.js-tinder-card': function (event, template) {
+				$(event.target).closest('li.tinder-card').addClass('magictime tinRightOut');
+				setTimeout(function(){
+					$(event.target).closest('li.tinder-card').remove();
+				}, 900);
+			},
+			'tap .swipe-left': function (event, template) {
+				$(event.target).closest('li.tinder-card').addClass('magictime tinLeftOut');
+				setTimeout(function(){
+					$(event.target).closest('li.tinder-card').remove();
+				}, 900);
+			},
+			'tap .swipe-right': function (event, template) {
+				$(event.target).closest('li.tinder-card').addClass('magictime tinRightOut');
+				setTimeout(function(){
+					$(event.target).closest('li.tinder-card').remove();
+				}, 900);
 			}
 		},
 		getTasksForReview: function () {
