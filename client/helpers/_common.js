@@ -76,14 +76,14 @@ Template.registerHelper('currentUserGender', function () {
 	return gender;
 });
 
-Template.registerHelper('currentUserTagline', function (isPlaceholder) {
+Template.registerHelper('currentUserTagline', function (isPlaceholder, noQuotes) {
 	var user = Meteor.user();
 
 	if ( user && user.profile && user.profile.tagline ) {
-		return user.profile.tagline;
+		return noQuotes ? user.profile.tagline : '"' + user.profile.tagline + '"';
 	}
 
-	return isPlaceholder ? 'What\'s on your mood ?' : '';
+	return isPlaceholder ? '"What\'s on your mood ?"' : '';
 });
 
 Template.registerHelper('currentUserAge', function (isPlaceholder) {
@@ -98,4 +98,31 @@ Template.registerHelper('currentUserAge', function (isPlaceholder) {
 	}
 
 	return isPlaceholder ? '' : 'Immortal';
+});
+
+Template.registerHelper('currentUserEmail', function () {
+	var user = Meteor.user();
+
+	if ( user && user.emails && user.emails[0].address )
+		return user.emails[0].address;
+
+	return '';
+});
+
+Template.registerHelper('currentUserPhone', function () {
+	var user = Meteor.user();
+
+	if ( user && user.profile && user.profile.phone )
+		return user.profile.phone;
+
+	return 'xxx-xxx-xxxx';
+});
+
+Template.registerHelper('currentUserRoomScore', function () {
+	var user = Meteor.user();
+
+	if ( user && user.profile && user.profile.roomscore )
+		return user.profile.roomscore;
+
+	return 786;
 });
