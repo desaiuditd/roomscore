@@ -3,5 +3,5 @@
  */
 
 Meteor.publish("task", function () {
-   return task.find({}); 
+    return task.find({}); 
 });

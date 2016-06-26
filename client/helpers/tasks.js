@@ -5,6 +5,8 @@
 Template.tasks.helpers(
     {
         getTasks : function(){
+            if(task.find().count() === 0)
+                console.log("here : "+task.find().fetch());
             return task.find().fetch();
         }
     }

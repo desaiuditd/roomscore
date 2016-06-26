@@ -3,5 +3,6 @@
  */
 
 Template.tasks.onCreated(function () {
+    
    Meteor.subscribe('task');
 }); 

@@ -1,10 +1,22 @@
 <template name="tasks">
-	List of Tasks
+	<h1>List of Tasks</h1>
     <div id = "taskList">
+        <table class = "table">
+            <thead class = "thead-inverse">
+                <tr>
+                    <th>no</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each getTasks}}
+                  <tr> <td>{{description}}</td> </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
         <ul>
-            {{#each getTasks}}
-                <li>{{description}}</li>
-            {{/each}}
+
         </ul>
     </div>
 </template>
