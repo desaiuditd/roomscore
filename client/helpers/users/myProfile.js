@@ -6,7 +6,7 @@ Template.myProfile.helpers(
 	{
 		profileGestures: {
 			'tap #change-gravatar': function(event, template) {
-				MeteorCamera.getPicture([], userProfile.saveGravatar);
+				MeteorCamera.getPicture({}, userProfile.saveGravatar);
 			},
 			'press #change-gravatar': function(event, template) {
 				$('#reset-gravatar-modal').modal('show');
