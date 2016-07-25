@@ -32,7 +32,7 @@ Template.registerHelper('currentUserGravatar', function(options) {
 		//email = Email.normalize( email );
 
 		if ( email ) {
-			gravatar = '<img class="avatar ' + options.hash.size + '" src="' + Gravatar.imageUrl( email ) + '" />';
+			gravatar = '<img class="avatar ' + options.hash.size + '" src="' + Gravatar.imageUrl( email, { secure: true } ) + '" />';
 		}
 	}
 
